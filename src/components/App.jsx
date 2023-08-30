@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { ContactFofm } from './ContactFofm/ContactFofm';
 import { Layout, WrapperStyled, Header } from './App.styled';
 import Phonebook from './Phonebook/Phonebook';
+import { load, removeKeys, save } from 'helpers/storage';
 
 export class App extends Component {
   state = {
@@ -10,6 +11,15 @@ export class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    this.setState({ contacts: load('contacts') });
+  }
+
+  componentDidUpdate(pProps, { contacts }) {
+    if (contacts !== this.state.contacts) {
+      save('contacts', this.state.contacts);
+    }
+  }
   addContact = ({ name, number }) => {
     name = name.trim();
     number = number.trim();
@@ -23,6 +33,7 @@ export class App extends Component {
     } else {
       this.setState(prev => ({
         contacts: [...prev.contacts, { name, number, id: nanoid() }],
+        filter: '',
       }));
     }
   };
@@ -34,6 +45,11 @@ export class App extends Component {
       ({ id }) => id !== idForDel
     );
     this.setState({ contacts: [...undeletedContacts] });
+  };
+
+  deleteAll = () => {
+    this.setState({ contacts: [], filter: '' });
+    removeKeys('contacts');
   };
 
   render() {
@@ -53,6 +69,7 @@ export class App extends Component {
             onChangeFilter={this.changeFilter}
             filteredContacts={filteredContacts}
             onDelete={this.deleteContact}
+            deleteAll={this.deleteAll}
           />
         )}
       </Layout>

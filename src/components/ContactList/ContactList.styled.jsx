@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const ListStyled = styled.ul`
   width: 100%;
-  height: 300px;
+  /* max-height: 280px; */
   font-size: 18px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -17,10 +18,6 @@ export const ListStyled = styled.ul`
     background-color: #888;
     border-radius: 5px;
   }
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: flex-end; */
-  /* gap: 5px; */
 `;
 
 export const ListItemStyled = styled.li`
@@ -35,6 +32,7 @@ export const ListItemStyled = styled.li`
 export const ItemInfoStyled = styled.div`
   width: 100%;
   display: flex;
+  position: relative;
   justify-content: space-between;
   border-bottom: 1px dotted #000;
 `;

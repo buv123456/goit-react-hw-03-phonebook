@@ -5,7 +5,7 @@ import {
   ListStyled,
 } from './ContactList.styled';
 
-export function ContactList({ filteredContacts, onDelete }) {
+export function ContactList({ filteredContacts, onDelete, deleteAll }) {
   return (
     <ListStyled>
       {filteredContacts.map(({ name, number, id }) => (
