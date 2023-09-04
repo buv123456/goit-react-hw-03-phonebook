@@ -14,11 +14,12 @@ export const PhonebookStyled = styled.div`
 `;
 
 export const BtnDelAllStyled = styled.button`
-  width: 50%;
+  width: fit-content;
   font-size: 0.8rem;
   text-transform: uppercase;
   position: relative;
   bottom: 5px;
+  padding: 0 4px;
   margin-top: auto;
   border-radius: 5px;
   &:hover {
