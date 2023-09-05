@@ -4,6 +4,7 @@ import { ContactFofm } from './ContactFofm/ContactFofm';
 import { Layout, WrapperStyled, Header } from './App.styled';
 import Phonebook from './Phonebook/Phonebook';
 import { load, save } from 'helpers/storage';
+import { Toaster } from 'react-hot-toast';
 
 export class App extends Component {
   state = {
@@ -67,6 +68,7 @@ export class App extends Component {
             onDelete={this.deleteContact}
           />
         )}
+        <Toaster position="top-right" reverseOrder={false} gutter={8} />
       </Layout>
     );
   }

@@ -15,6 +15,7 @@
     "notiflix": "^3.2.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-hot-toast": "^2.4.1",
     "react-scripts": "5.0.1",
     "snpm": "^0.1.1",
     "styled-components": "^6.0.7",
