@@ -29,15 +29,11 @@ export class App extends Component {
       item => item.name.toLowerCase() === name.toLowerCase()
     );
 
-    if (isInList) {
-      alert(name + ' is already in contacts list!');
-      this.changeFilter(name);
-    } else {
-      this.setState(prev => ({
-        contacts: [...prev.contacts, { name, number, id: nanoid() }],
-        filter: '',
-      }));
-    }
+    isInList
+      ? alert(name + ' is already in contacts list!')
+      : this.setState(prev => ({
+          contacts: [...prev.contacts, { name, number, id: nanoid() }],
+        }));
   };
 
   changeFilter = filterStr => this.setState({ filter: filterStr });

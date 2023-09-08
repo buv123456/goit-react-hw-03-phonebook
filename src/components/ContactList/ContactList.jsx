@@ -14,11 +14,7 @@ export function ContactList({ filteredContacts, onDelete }) {
             <span>{name}:</span>
             <span> {number}</span>
           </ItemInfoStyled>
-          <ButtonStyled
-            type="button"
-            name={id}
-            onClick={e => onDelete(e.target.name)}
-          >
+          <ButtonStyled type="button" name={id} onClick={e => onDelete(id)}>
             delete
           </ButtonStyled>
         </ListItemStyled>
